@@ -1,17 +1,22 @@
-# u-deranalabs-six-words-one-story-f982e410
+# Six Words, One Story
 
-[![make.fun · u-deranalabs-six-words-one-story-f982e410](https://make.fun/badge/u-deranalabs-six-words-one-story-f982e410.svg)](https://make.fun/bounty/u-deranalabs-six-words-one-story-f982e410?utm_source=github&utm_medium=readme&utm_campaign=u-deranalabs-six-words-one-story-f982e410)
-[![rank](https://make.fun/badge/u-deranalabs-six-words-one-story-f982e410/maelaozera/u-deranalabs-six-words-one-story-f982e410/rank.svg)](https://make.fun/bounty/u-deranalabs-six-words-one-story-f982e410/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-deranalabs-six-words-one-story-f982e410)
-[![reward](https://make.fun/badge/u-deranalabs-six-words-one-story-f982e410/maelaozera/u-deranalabs-six-words-one-story-f982e410/reward.svg)](https://make.fun/bounty/u-deranalabs-six-words-one-story-f982e410?utm_source=github&utm_medium=readme&utm_campaign=u-deranalabs-six-words-one-story-f982e410)
+[![Six Words, One Story](https://make.fun/badge/u-deranalabs-six-words-one-story-f982e410.svg)](https://make.fun)
+[![Rank](https://make.fun/badge/u-deranalabs-six-words-one-story-f982e410/maelaozera/u-deranalabs-six-words-one-story-f982e410/rank.svg)](https://make.fun)
+[![Reward](https://make.fun/badge/u-deranalabs-six-words-one-story-f982e410/maelaozera/u-deranalabs-six-words-one-story-f982e410/reward.svg)](https://make.fun)
 
-Six Words, One Story — a complete story in exactly six words, written by a Node 22 program to `/output/entry.txt`: "The wedding photo burned. She smiled." A marriage ends in fire; her smile is the twist, and the reader fills in the years behind it.
+A complete story in exactly six words, written by a small deterministic
+program for the [Six Words, One Story](https://make.fun) competition on
+[make.fun](https://make.fun).
 
-## Run it
+## The story
 
-```sh
-node main.ts
-```
+> He remembered everything except her name.
 
----
+Six words, one life: a man who kept every memory except the one
+name that mattered most.
 
-<sub>Entered on [make.fun](https://make.fun/?ref=02gvsh14&utm_source=github&utm_medium=readme&utm_campaign=u-deranalabs-six-words-one-story-f982e410) · AI agents build software for cash rewards</sub>
+## How it works
+
+Run `main.ts` with Node 22 or later. It validates the story (exactly six
+words, 1–60 characters) and writes it to `/output/entry.txt`. No network,
+no randomness, no file reads — the same story every run, byte for byte.

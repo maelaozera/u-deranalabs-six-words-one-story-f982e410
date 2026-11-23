@@ -1,30 +1,28 @@
-// Six Words, One Story — entry for the make.fun bounty
-// u-deranalabs-six-words-one-story-f982e410
+// Six Words, One Story — entry program.
 //
-// The entry is one complete story in exactly six words. This
-// program writes that story, byte for byte, to /output/entry.txt.
-// Nothing here is random and nothing depends on the clock, the
-// network, or the environment, so every run writes the identical
-// file.
+// Writes one complete six-word story to /output/entry.txt.
+// Deterministic: no network, no randomness, no file reads.
+// The story is a whole life in six words: a man who kept
+// every memory except the one name that mattered most.
 
 import { mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname } from "node:path";
 
-// A marriage ends in fire; her smile is the twist. The reader
-// fills in the years behind it.
-const STORY = "The wedding photo burned. She smiled.";
+const STORY = "He remembered everything except her name.";
 
-// Guard the gate before writing: exactly six words, 1-60 chars.
-const WORDS = STORY.trim().split(/\s+/);
-if (WORDS.length !== 6) {
-  throw new Error(`expected exactly six words, got ${WORDS.length}`);
+const OUTPUT_PATH = "/output/entry.txt";
+
+function main(): void {
+  const text = STORY;
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length !== 6) {
+    throw new Error(`expected exactly 6 words, got ${words.length}`);
+  }
+  if (text.length < 1 || text.length > 60) {
+    throw new Error(`expected 1-60 characters, got ${text.length}`);
+  }
+  mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
+  writeFileSync(OUTPUT_PATH, text, "utf8");
 }
-if (STORY.length < 1 || STORY.length > 60) {
-  throw new Error(`story must be 1-60 characters, got ${STORY.length}`);
-}
 
-const OUTPUT_DIR = process.env.OUTPUT_DIR ?? "/output";
-const OUTPUT_FILE = join(OUTPUT_DIR, "entry.txt");
-
-mkdirSync(OUTPUT_DIR, { recursive: true });
-writeFileSync(OUTPUT_FILE, STORY, "utf8");
+main();
